@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms & Conditions - Eduvise Institute</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            --primary-blue: #2563eb;
+            --dark-blue: #1e3a8a;
+            --cta-orange: #f59e0b;
+            --cta-hover: #d97706;
+            --text-dark: #1f2937;
+            --text-gray: #6b7280;
+            --bg-light: #f9fafb;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+            font-size: 14px; /* Slightly larger than home for readability of text */
+        }
+
+        h1 { font-size: 2.2rem; }
+        h2 { font-size: 1.5rem; color: var(--dark-blue); margin-bottom: 15px; }
+        h3 { font-size: 1.1rem; color: var(--text-dark); margin-bottom: 10px; font-weight: 600; }
+        p { margin-bottom: 15px; color: var(--text-gray); }
+        ul { margin-bottom: 15px; padding-left: 20px; }
+        li { color: var(--text-gray); margin-bottom: 8px; }
+
+        /* --- Utilities --- */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        .section-padding {
+            padding: 60px 0;
+        }
+
+        a { text-decoration: none; color: inherit; }
+
+        /* --- Navbar (Copied from Home) --- */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 10px 0;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-weight: 700;
+            font-size: 1rem;
+            color: var(--dark-blue);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-dark);
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-blue);
+        }
+
+        /* --- Page Header (Adapted from Hero) --- */
+        .page-header {
+            background-color: var(--primary-blue);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .page-header h1 {
+            color: white;
+            margin-bottom: 10px;
+        }
+
+        .page-header p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 0.9rem;
+        }
+
+        /* --- Legal Content Box --- */
+        .legal-content-wrapper {
+            background: white;
+            border-radius: 8px;
+            padding: 40px;
+            margin-top: -30px; /* Overlap effect */
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            margin-bottom: 50px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .legal-meta {
+            font-size: 0.8rem;
+            color: var(--text-gray);
+            border-bottom: 1px solid #e5e7eb;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+
+        .policy-section {
+            margin-bottom: 30px;
+        }
+
+        /* Numbered circles for sections */
+        .section-number {
+            display: inline-block;
+            background: var(--cta-orange);
+            color: white;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 24px;
+            font-size: 12px;
+            margin-right: 10px;
+            font-weight: bold;
+        }
+
+        /* --- Footer (Copied from Home) --- */
+        footer {
+            background-color: white;
+            padding: 30px 0 15px;
+            border-top: 1px solid #eee;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1.5fr;
+            gap: 30px;
+        }
+
+        .footer-links a {
+            color: var(--text-gray);
+            transition: color 0.3s;
+            font-size: 0.8rem;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-blue);
+            padding-left: 3px;
+        }
+
+        /* --- Responsive --- */
+        @media (max-width: 768px) {
+            nav { flex-direction: column; gap: 10px; }
+            .nav-links { gap: 10px; flex-wrap: wrap; justify-content: center; }
+            .footer-grid { grid-template-columns: 1fr; }
+            .legal-content-wrapper { padding: 20px; margin-top: 0; border-radius: 0; }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <img src="WhatsApp Image 2025-12-14 at 1.52.32 PM.jpeg" width="25px" alt="">
+                    &nbsp; Eduvise Institute
+                </div>
+
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="About.html">About Us</a></li>
+                    <li><a href="Home.html#Contact Us">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="page-header">
+        <div class="container">
+            <h1>Privacy Policy</h1>
+            <p>Please read these terms carefully before using our services.</p>
+        </div>
+    </section>
+
+    <div class="container">
+        <div class="legal-content-wrapper">
+            
+            <div class="legal-meta">
+                <strong>Effective Date:</strong> 2024 &nbsp;|&nbsp; 
+                <strong>Last Updated:</strong> 2025
+                <br><br>
+                <p>Welcome to Eduvise Institute. By accessing or using our website, courses, and services, you agree to comply with and be bound by the following Terms & Conditions. If you do not agree, you should not use our services.</p>
+            </div>
+
+            <div class="policy-section">
+                <h3><span class="section-number">1</span>About Eduvise Institute</h3>
+                <p>Eduvise Institute is an online education platform launched in 2024, currently offering a Financial Modelling & Analysis course. The institute may introduce additional finance-related courses in the future.</p>
+            </div>
+
+            <div class="policy-section">
+                <h3><span class="section-number">2</span>Acceptance of Terms</h3>
+                <p>By accessing this website or enrolling in any course offered by Eduvise Institute, you acknowledge that you have read, understood, and agreed to these Terms & Conditions.</p>
+            </div>
+
+            <div class="policy-section">
+                <h3><span class="section-number">3</span>Eligibility</h3>
+                <p>To enroll in our courses, you must:</p>
+                <ul>
+                    <li>Be at least 18 years of age, or</li>
+                    <li>Have permission from a parent or legal guardian</li>
+                </ul>
+                <p>You confirm that the information you provide is accurate and complete.</p>
+            </div>
+
+            <div class="policy-section">
+                <h3><span class="section-number">4</span>Course Access & Usage</h3>
+                <ul>
+                    <li>Course access is provided online only.</li>
+                    <li>Access is for personal, non-commercial use.</li>
+                    <li>Course materials (videos, documents, templates) must not be shared, distributed, resold, or reproduced without written permission.</li>
+                </ul>
+                <p>Unauthorized use may result in termination of access without refund.</p>
+            </div>
+
+            <div class="policy-section">
+                <h3><span class="section-number">5</span>Payments & Pricing</h3>
+                <ul>
+                    <li>Course fees are clearly displayed on the website.</li>
+                    <li>All payments must be completed through authorized third-party payment gateways.</li>
+                    <li>Eduvise Institute reserves the right to change pricing at any time without prior notice.</li>
+                    <li>Once purchased, pricing remains fixed for that transaction.</li>
+                </ul>
+            </div>
+
+            <div class="policy-section">
+                <h3><span class="section-number">6</span>Refund & Cancellation Policy</h3>
+                <p>Unless explicitly stated otherwise:</p>
+                <ul>
+                    <li>Course fees are non-refundable.</li>
+                    <li>No refunds will be issued for partial course completion or non-usage.</li>
+                    <li>Any exceptions will be clearly communicated at the time of purchase.</li>
+                </ul>
+            </div>
+
+            <div class="policy-section">
+                <h3><span class="section-number">7</span>Intellectual Property</h3>
+                <p>All content on the Eduvise Institute website, including course videos, text, graphics, logos, and downloadable materials, is the intellectual property of Eduvise Institute and is protected by applicable copyright laws.</p>
+            </div>
+
+            <div class="policy-section">
+                <h3><span class="section-number">8</span>User Conduct</h3>
+                <p>You agree not to misuse the website or course content, attempt to gain unauthorized access to systems, or engage in activities that disrupt services or harm other users. Violation may lead to suspension or termination of access.</p>
+            </div>
+
+            <div class="policy-section">
+                <h3><span class="section-number">9</span>Disclaimer of Guarantees</h3>
+                <p>Eduvise Institute provides educational content only. We do not guarantee job placement, promotions, or specific financial outcomes. Results depend on individual effort, background, and market conditions.</p>
+            </div>
+
+            <div class="policy-section">
+                <h3><span class="section-number">10</span>Limitation of Liability</h3>
+                <p>Eduvise Institute shall not be liable for any indirect, incidental, or consequential damages, including loss of data, income, or business opportunities arising from the use or inability to use our services.</p>
+            </div>
+
+            <div class="policy-section">
+                <h3><span class="section-number">11</span>Third-Party Services</h3>
+                <p>Our website may integrate third-party tools (payment gateways, analytics, hosting). Eduvise Institute is not responsible for the terms or practices of these external services.</p>
+            </div>
+
+            <div class="policy-section">
+                <h3><span class="section-number">12</span>Modifications to Terms</h3>
+                <p>Eduvise Institute reserves the right to update or modify these Terms & Conditions at any time. Continued use of the website after changes implies acceptance of the revised terms.</p>
+            </div>
+
+            <div class="policy-section">
+                <h3><span class="section-number">13</span>Governing Law</h3>
+                <p>These Terms & Conditions shall be governed and interpreted in accordance with the laws of India.</p>
+            </div>
+
+            <div class="policy-section" style="background-color: #f0f9ff; padding: 20px; border-radius: 8px;">
+                <h3 style="margin-top: 0;">Contact Information</h3>
+                <p>For any questions regarding these Terms & Conditions, please contact:</p>
+                <p style="margin-bottom: 5px; color: var(--text-dark);"><strong>Eduvise Institute</strong></p>
+                <p style="margin-bottom: 5px;">Email: <a href="mailto:support@eduviseinstitute.com" style="color: var(--primary-blue);">support@eduviseinstitute.com</a></p>
+                <p>Phone: +91-XXXXXXXXXX</p>
+            </div>
+
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <div class="logo" style="margin-bottom: 15px;">
+                        <i class="fa-solid fa-graduation-cap" style="color: var(--cta-orange); margin-right: 8px;"></i> Eduvise Institute
+                    </div>
+                    <p style="color: #666; font-size: 0.8rem;">Empowering finance professionals with world-class training in financial modeling, analysis, and valuation techniques.</p>
+                </div>
+                <div>
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links" style="list-style: none; padding-left: 0;">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="About.html">About Us</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Contact Us</h3>
+                    <p style="color: #666; font-size: 0.8rem;">Office No. - 323, Magnolia Business Center, Baner - Pashan Link Rd, behind Start Bazar, Baner, Pune, Maharashtra 411021</p>
+                    <p style="color: #666; font-size: 0.8rem;">+91 84518 67680</p>
+                    <p style="color: #666; font-size: 0.8rem;">info@eduvise.com</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

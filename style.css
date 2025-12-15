@@ -1,0 +1,465 @@
+/* styles.css */
+
+/* Global Styles and Typography */
+:root {
+    --primary-color: #007bff; /* Eduvise Blue */
+    --secondary-color: #ff9900; /* Accent Orange */
+    --text-dark: #333;
+    --text-light: #fff;
+    --background-light: #f8f9fa;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    line-height: 1.6;
+    color: var(--text-dark);
+    background-color: var(--background-light);
+    scroll-behavior: smooth;
+}
+
+h1, h2, h3, h4 {
+    color: var(--text-dark);
+    line-height: 1.2;
+    margin-bottom: 0.5em;
+}
+
+h1 { font-size: 2.5rem; }
+h2 { font-size: 2rem; margin-bottom: 1.5rem; }
+h3 { font-size: 1.5rem; }
+
+a {
+    text-decoration: none;
+    color: var(--primary-color);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+section {
+    padding: 80px 0;
+    text-align: center;
+}
+
+/* 1. Header and Navigation */
+header {
+    background-color: var(--text-light);
+    box-shadow: var(--shadow);
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 {
+    font-size: 1.8rem;
+    color: var(--primary-color);
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+}
+
+header nav ul li {
+    margin-left: 20px;
+}
+
+header nav ul li a:not(.cta-button) {
+    color: var(--text-dark);
+    padding: 5px 10px;
+    transition: color 0.3s;
+}
+
+header nav ul li a:hover:not(.cta-button) {
+    color: var(--secondary-color);
+}
+
+/* Call to Action Button Styling */
+.cta-button {
+    display: inline-block;
+    padding: 12px 25px;
+    border-radius: 50px;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.cta-button.primary {
+    background-color: var(--secondary-color);
+    color: var(--text-light);
+    border: 2px solid var(--secondary-color);
+}
+
+.cta-button.primary:hover {
+    background-color: #e68a00; /* Darker orange */
+    transform: scale(1.02);
+}
+
+/* 2. Hero Section */
+#hero {
+    background: linear-gradient(135deg, var(--primary-color), #0056b3);
+    color: var(--text-light);
+    padding: 100px 0;
+}
+
+#hero h1 {
+    color: var(--text-light);
+    font-size: 3.5rem;
+    margin-bottom: 0.2em;
+}
+
+#hero .subtitle {
+    max-width: 700px;
+    margin: 0 auto 30px;
+    font-size: 1.2rem;
+}
+
+#hero .stats {
+    margin-bottom: 30px;
+}
+
+#hero .stats span {
+    display: inline-block;
+    margin: 0 15px;
+    font-weight: 500;
+    padding: 5px 10px;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+#hero .pricing {
+    margin: 20px 0;
+}
+
+.sale-price {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--secondary-color);
+    margin-right: 15px;
+}
+
+.original-price {
+    font-size: 1.5rem;
+    text-decoration: line-through;
+    opacity: 0.7;
+    margin-right: 15px;
+}
+
+.discount {
+    font-size: 1.2rem;
+    background-color: #28a745;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+#hero .guarantee, #hero .preview {
+    margin-top: 15px;
+    font-size: 0.9rem;
+}
+
+#hero .preview a {
+    color: var(--text-light);
+    text-decoration: underline;
+}
+
+/* 3. What You'll Get (Benefits) */
+#benefits {
+    background-color: var(--text-light);
+}
+
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1000px;
+    margin: 40px auto 0;
+}
+
+.benefit-item {
+    padding: 25px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    text-align: left;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.benefit-item:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow);
+}
+
+.benefit-item h3 {
+    color: var(--primary-color);
+}
+
+/* 4. Course Curriculum */
+#curriculum {
+    background-color: var(--background-light);
+}
+
+.modules {
+    max-width: 800px;
+    margin: 40px auto 0;
+    text-align: left;
+}
+
+.module-item {
+    border: 1px solid #ddd;
+    border-left: 5px solid var(--secondary-color);
+    padding: 20px;
+    margin-bottom: 15px;
+    border-radius: 4px;
+    background-color: var(--text-light);
+}
+
+.module-item h3 {
+    color: var(--text-dark);
+}
+
+.module-item p {
+    margin-top: 5px;
+    font-size: 0.95rem;
+}
+
+/* 5. Meet Your Instructor */
+#instructor {
+    background-color: var(--text-light);
+}
+
+.instructor-details {
+    max-width: 700px;
+    margin: 40px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.instructor-details img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 20px;
+    border: 4px solid var(--secondary-color);
+}
+
+.instructor-details h4 {
+    color: var(--primary-color);
+}
+
+.instructor-details .stats {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 15px 0;
+}
+
+.instructor-details .stats span {
+    font-weight: bold;
+}
+
+.instructor-details .about {
+    text-align: left;
+    margin-top: 20px;
+    padding: 0 20px;
+}
+
+/* 6. Student Success Stories (Testimonials) */
+#testimonials {
+    background-color: var(--background-light);
+}
+
+.testimonial-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 40px auto 0;
+}
+
+.testimonial-card {
+    background-color: var(--text-light);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    text-align: left;
+}
+
+.testimonial-card p:first-child {
+    font-style: italic;
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+}
+
+.student-name {
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.student-title {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+/* 7. Frequently Asked Questions (FAQ) */
+#faq {
+    background-color: var(--text-light);
+}
+
+.faq-list {
+    max-width: 800px;
+    margin: 40px auto 0;
+    text-align: left;
+}
+
+.faq-list details {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+.faq-list summary {
+    padding: 15px;
+    cursor: pointer;
+    font-weight: bold;
+    color: var(--text-dark);
+    outline: none;
+    background-color: #f0f0f0;
+}
+
+.faq-list summary:hover {
+    background-color: #e9e9e9;
+}
+
+.faq-list p {
+    padding: 15px;
+    border-top: 1px solid #ddd;
+}
+
+/* 8. Final Call to Action */
+.final-cta {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+}
+
+.final-cta h2, .final-cta p {
+    color: var(--text-light);
+}
+
+.final-cta .benefits-row {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+/* 9. Footer */
+footer {
+    background-color: var(--text-dark);
+    color: var(--text-light);
+    padding: 50px 0 20px;
+    text-align: left;
+}
+
+footer .container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+footer h3 {
+    color: var(--secondary-color);
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+}
+
+footer p, footer ul {
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+footer ul {
+    list-style: none;
+}
+
+footer ul li {
+    margin-bottom: 8px;
+}
+
+footer a {
+    color: var(--text-light);
+    transition: color 0.3s;
+}
+
+footer a:hover {
+    color: var(--secondary-color);
+}
+
+.legal-links {
+    width: 100%;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+}
+
+.legal-links a {
+    margin: 0 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    h1 { font-size: 2rem; }
+    h2 { font-size: 1.7rem; }
+    section { padding: 60px 0; }
+
+    header .container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    header nav ul {
+        margin-top: 10px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    header nav ul li {
+        margin: 5px 10px;
+    }
+
+    .benefits-grid, .testimonial-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .final-cta .benefits-row {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    footer .container {
+        flex-direction: column;
+        text-align: center;
+    }
+}

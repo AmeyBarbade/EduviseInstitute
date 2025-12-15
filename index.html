@@ -1,0 +1,1086 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eduvise Institute - Financial Modelling</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            --primary-blue: #2563eb;
+            --dark-blue: #1e3a8a;
+            --cta-orange: #f59e0b;
+            --cta-hover: #d97706;
+            --text-dark: #1f2937;
+            --text-gray: #6b7280;
+            --bg-light: #f9fafb;
+            --white: #ffffff;
+            --paytm-blue: #00BAF2;
+            --paytm-dark: #002E6E;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.5;
+            overflow-x: hidden;
+            /* Reduced base font size */
+            font-size: 12px;
+        }
+
+        h1 {
+            font-size: 2rem;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+        }
+
+        h3 {
+            font-size: 1.1rem;
+        }
+
+        h4 {
+            font-size: 0.9rem;
+        }
+
+        p {
+            font-size: 0.85rem;
+        }
+
+        /* --- Utilities --- */
+        .container {
+            max-width: 1000px;
+            /* Made container smaller */
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        .btn {
+            padding: 8px 16px;
+            /* Reduced padding */
+            border-radius: 5px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            cursor: pointer;
+            border: none;
+            transition: all 0.3s ease;
+            font-size: 0.8rem;
+            /* Smaller button text */
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        .btn-primary {
+            background-color: var(--cta-orange);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--cta-hover);
+        }
+
+        /* Reduced section padding significantly */
+        .section-padding {
+            padding: 40px 0;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .text-blue {
+            color: var(--primary-blue);
+        }
+
+        /* --- Navbar --- */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 10px 0;
+            /* Reduced padding */
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-weight: 700;
+            font-size: 1rem;
+            /* Smaller logo */
+            color: var(--dark-blue);
+        }
+
+        .logo i {
+            font-size: 1.2rem;
+            margin-right: 8px;
+            color: var(--cta-orange);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            /* Reduced gap */
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            font-size: 0.9rem;
+            position: relative;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-blue);
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            background-color: var(--primary-blue);
+            color: white;
+            padding: 40px 0;
+            /* Reduced padding */
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-size: 2.2rem;
+            /* Halved from 3.5rem roughly */
+            line-height: 1.1;
+            margin-bottom: 15px;
+        }
+
+        .hero-text h4 {
+            color: var(--cta-orange);
+            margin-bottom: 10px;
+            font-size: 0.8rem;
+        }
+
+        .price-card {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 15px;
+            /* Reduced padding */
+            border-radius: 8px;
+            transition: transform 0.3s;
+            max-width: 300px;
+        }
+
+        .price-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .price-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .current-price {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--cta-orange);
+        }
+
+        /* Reduced */
+        .original-price {
+            text-decoration: line-through;
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+
+        .badge {
+            background-color: #10b981;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 0.7rem;
+        }
+
+        .video-placeholder {
+            background-color: #3b82f6;
+            border-radius: 10px;
+            height: 250px;
+            /* Reduced height */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            position: relative;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .video-placeholder:hover {
+            transform: scale(1.02);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .play-btn {
+            width: 50px;
+            height: 50px;
+            /* Smaller button */
+            background: var(--cta-orange);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            transition: transform 0.3s;
+        }
+
+        .video-placeholder:hover .play-btn {
+            transform: scale(1.1);
+        }
+
+        /* --- Features Section --- */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 20px;
+            /* Reduced padding */
+            border-radius: 8px;
+            box-shadow: 0 3px 5px rgba(0, 0, 0, 0.05);
+            display: flex;
+            gap: 15px;
+            align-items: flex-start;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-icon {
+            color: var(--primary-blue);
+            font-size: 1.1rem;
+            background: #eff6ff;
+            width: 35px;
+            height: 35px;
+            /* Smaller icon box */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 6px;
+            flex-shrink: 0;
+        }
+
+        /* --- Curriculum --- */
+        .module-card {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            /* Reduced padding */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            border-left: 4px solid var(--dark-blue);
+            margin-bottom: 15px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .module-card:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .module-header {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 10px;
+        }
+
+        .module-number {
+            background: var(--dark-blue);
+            color: white;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+
+        .module-content li {
+            padding-left: 20px;
+            color: var(--text-gray);
+            font-size: 0.8rem;
+            position: relative;
+            list-style: none;
+        }
+
+        .module-content li::before {
+            content: '\f058';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            color: #10b981;
+            position: absolute;
+            left: 0;
+            font-size: 0.8rem;
+        }
+
+        /* --- Instructor & Reviews --- */
+        .review-card {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .review-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .reviewer img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .reviewer {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* --- Footer --- */
+        footer {
+            background-color: white;
+            padding: 30px 0 15px;
+            border-top: 1px solid #eee;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1.5fr;
+            gap: 30px;
+        }
+
+        .footer-links a {
+            color: var(--text-gray);
+            text-decoration: none;
+            transition: color 0.3s;
+            font-size: 0.8rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-blue);
+            padding-left: 3px;
+        }
+
+        /* --- PAYTM PAYMENT GATEWAY OVERLAY --- */
+        .payment-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            backdrop-filter: blur(3px);
+        }
+
+        .paytm-modal {
+            background: white;
+            width: 600px;
+            /* Reduced width */
+            max-width: 95%;
+            height: 450px;
+            /* Reduced height */
+            border-radius: 8px;
+            overflow: hidden;
+            display: flex;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
+            position: relative;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 18px;
+            cursor: pointer;
+            color: #555;
+            z-index: 10;
+        }
+
+        .paytm-left {
+            width: 40%;
+            background: #f5f7fa;
+            padding: 20px;
+            border-right: 1px solid #e0e0e0;
+        }
+
+        .paytm-right {
+            width: 60%;
+            padding: 20px;
+        }
+
+        .paytm-logo {
+            font-weight: 800;
+            font-size: 1.2rem;
+            font-style: italic;
+            color: var(--paytm-dark);
+            margin-bottom: 20px;
+        }
+
+        .paytm-logo span {
+            color: var(--paytm-blue);
+        }
+
+        .order-summary {
+            background: white;
+            padding: 15px;
+            border-radius: 6px;
+            border: 1px solid #ddd;
+        }
+
+        .order-title {
+            font-size: 0.75rem;
+            color: #666;
+            margin-bottom: 3px;
+        }
+
+        .order-item {
+            font-weight: 600;
+            font-size: 0.85rem;
+            margin-bottom: 10px;
+        }
+
+        .total-amount {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 1px dashed #ccc;
+        }
+
+        .price-tag {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #333;
+        }
+
+        .payment-tabs {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #eee;
+        }
+
+        .tab {
+            padding-bottom: 8px;
+            cursor: pointer;
+            color: #666;
+            font-weight: 500;
+            font-size: 0.8rem;
+        }
+
+        .tab.active {
+            color: var(--paytm-blue);
+            border-bottom: 2px solid var(--paytm-blue);
+        }
+
+        .qr-container {
+            text-align: center;
+            padding: 15px;
+            border: 2px dashed #ddd;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        .qr-box {
+            width: 100px;
+            height: 100px;
+            background: #eee;
+            margin: 0 auto 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: #ccc;
+        }
+
+        .pay-btn-final {
+            width: 100%;
+            background: var(--paytm-blue);
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        a {
+            text-decoration: none;
+            color: white;
+        }
+
+        .pay-btn-final:hover {
+            background: #009ac9;
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .nav-links {
+                gap: 10px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .logo {
+                width: auto;
+                justify-content: center;
+                margin-bottom: 5px;
+            }
+
+            .hero-content,
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .paytm-modal {
+                flex-direction: column;
+                height: auto;
+                overflow-y: scroll;
+            }
+
+            .paytm-left,
+            .paytm-right {
+                width: 100%;
+            }
+        }
+
+        /* --- Updated Video Container --- */
+        .video-placeholder {
+            /* Removed background-color and border */
+            background: transparent;
+            border: none;
+            border-radius: 10px;
+            height: 250px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            /* Essential for the play button positioning */
+            cursor: pointer;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            /* Adds a nice shadow to the video itself */
+        }
+
+        /* Ensure video fills the space */
+        .video-placeholder video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        /* --- New Custom Play Button Styles --- */
+        .custom-play-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.1);
+            /* Slight dark tint over video before playing */
+            transition: all 0.3s ease;
+            z-index: 10;
+        }
+
+        .play-circle {
+            width: 65px;
+            height: 65px;
+            background-color: var(--cta-orange);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.7);
+            animation: pulse-orange 2s infinite;
+            transition: transform 0.3s ease;
+        }
+
+        .play-circle i {
+            color: white;
+            font-size: 1.5rem;
+            margin-left: 4px;
+            /* Slight visual correction for play icon center */
+        }
+
+        .video-placeholder:hover .play-circle {
+            transform: scale(1.1);
+            background-color: var(--cta-hover);
+        }
+
+        /* Pulse Animation */
+        @keyframes pulse-orange {
+            0% {
+                transform: scale(0.95);
+                box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.7);
+            }
+
+            70% {
+                transform: scale(1);
+                box-shadow: 0 0 0 15px rgba(245, 158, 11, 0);
+            }
+
+            100% {
+                transform: scale(0.95);
+                box-shadow: 0 0 0 0 rgba(245, 158, 11, 0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <img src="WhatsApp Image 2025-12-14 at 1.52.32 PM.jpeg" width="25px" alt="">
+                    &nbsp Eduvise Institute
+                </div>
+
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="About.html">About Us</a></li>
+                    <li><a href="#Contact Us">Contact</a></li>
+                </ul>
+
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container hero-content">
+            <!-- <video src="WhatsApp Video 2025-12-14 at 3.47.17 PM (1).mp4"></video> -->
+            <div class="hero-text">
+                <h4><i class="fa-solid fa-graduation-cap"></i> Professional Certification Course</h4>
+                <h1>Financial Modelling & Analysis</h1>
+                <p>Master the art of financial modeling. Learn industry-standard techniques used by top investment banks
+                    and consulting firms.</p>
+
+                <div style="margin-bottom: 20px; font-size: 0.8rem;">
+                    <span style="margin-right: 15px;"><i class="fa-regular fa-clock" style="color: #f59e0b;"></i> 12
+                        Weeks</span>
+                    <span><i class="fa-solid fa-user-group" style="color: #f59e0b;"></i> 5847+ Students</span>
+                </div>
+
+                <div class="price-card">
+                    <div class="price-row">
+                        <span class="current-price">₹19,999</span>
+                        <span class="original-price">₹40,000 </span>
+                        <span class="badge">Save 50 %</span>
+                    </div>
+                    <button class="btn btn-primary" onclick="openPayment()" style="width: 100%;">
+                        <i class="fa-solid fa-cart-shopping"></i> <a href="index4.html"> Enroll Now</a>
+                    </button>
+                    <p style="margin-top: 8px; font-size: 0.7rem; text-align: center; opacity: 0.8;">
+                        <i class="fa-solid fa-shield-halved"></i> 30-Day Money Back Guarantee
+                    </p>
+                </div>
+            </div>
+
+            <div class="video-placeholder" onclick="togglePlay()">
+                <video id="heroVideo" width="100%" height="100%">
+                    <source src="WhatsApp Video 2025-12-14 at 3.47.17 PM (1).mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+
+                <div class="custom-play-overlay" id="playOverlay">
+                    <div class="play-circle">
+                        <i class="fa-solid fa-play"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding features text-center">
+        <div class="container">
+            <h2>What You'll Get</h2>
+            <p style="color: var(--text-gray); margin-bottom: 30px;">Comprehensive learning experience designed for
+                professional growth</p>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fa-solid fa-video"></i></div>
+                    <div class="feature-text" style="text-align: left;">
+                        <h3>Video Lectures</h3>
+                        <p>80+ hours of comprehensive video content covering all aspects.</p>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fa-solid fa-file-arrow-down"></i></div>
+                    <div class="feature-text" style="text-align: left;">
+                        <h3>Downloadable Resources</h3>
+                        <p>Excel templates, case studies, and practice files.</p>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fa-solid fa-clock"></i></div>
+                    <div class="feature-text" style="text-align: left;">
+                        <h3>Lifetime Access</h3>
+                        <p>Learn at your own pace with unlimited access.</p>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                    <div class="feature-text" style="text-align: left;">
+                        <h3>Certificate</h3>
+                        <p>Industry-recognized certificate upon successful completion.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding" style="background-color: white;">
+        <div class="container">
+            <div class="text-center" style="margin-bottom: 30px;">
+                <h2 id="Course Overview">Course Curriculum</h2>
+            </div>
+
+            <div class="curriculum-list">
+                <div class="module-card">
+                    <div class="module-header">
+                        <div class="module-number">1</div>
+                        <div class="module-title">
+                            <h3>Introduction to Financial Modeling</h3>
+                            <p>Build a strong foundation in financial modeling principles.</p>
+                        </div>
+                    </div>
+                    <div class="module-content">
+                        <ul>
+                            <li>Financial modeling best practices and standards</li>
+                            <li>Advanced Excel functions and shortcuts</li>
+                            <li>Building dynamic financial models</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-header">
+                        <div class="module-number">2</div>
+                        <div class="module-title">
+                            <h3>Financial Statement Analysis</h3>
+                            <p>Learn to analyze and interpret financial statements.</p>
+                        </div>
+                    </div>
+                    <div class="module-content">
+                        <ul>
+                            <li>Income statement modeling and analysis</li>
+                            <li>Balance sheet construction and forecasting</li>
+                            <li>Cash flow statement preparation</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-header">
+                        <div class="module-number">3</div>
+                        <div class="module-title">
+                            <h3>Valuation Techniques</h3>
+                            <p>Master various valuation methodologies used in investment banking</p>
+                        </div>
+                    </div>
+                    <div class="module-content">
+                        <ul>
+                            <li>Discounted Cash Flow (DCF) analysis</li>
+                            <li>Comparable company analysis</li>
+                            <li>Precedent transaction analysis</li>
+                            <li>Leveraged Buyout (LBO) modeling</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-header">
+                        <div class="module-number">4</div>
+                        <div class="module-title">
+                            <h3>Advanced Financial Modeling</h3>
+                            <p>Build complex financial models for real-world business scenarios</p>
+                        </div>
+                    </div>
+                    <div class="module-content">
+                        <ul>
+                            <li>Three-statement integrated models</li>
+                            <li>Merger and acquisition modeling</li>
+                            <li>Project finance and infrastructure modeling</li>
+                            <li>Scenario and sensitivity analysis</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-header">
+                        <div class="module-number">5</div>
+                        <div class="module-title">
+                            <h3>Industry Applications</h3>
+                            <p>Apply financial modeling skills to specific industry contexts</p>
+                        </div>
+                    </div>
+                    <div class="module-content">
+                        <ul>
+                            <li>Real estate financial modeling</li>
+                            <li>Technology and SaaS company modeling</li>
+                            <li>Retail and consumer goods modeling</li>
+                            <li>Energy and utilities sector modeling</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding">
+        <div class="container">
+            <h2 class="text-center" id="Student reviews" style="margin-bottom: 30px;">Student Success Stories</h2>
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <div style="color: #f59e0b; margin-bottom: 5px; font-size: 0.8rem;">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                            class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                            class="fa-solid fa-star"></i>
+                    </div>
+                    <p style="font-style: italic; margin-bottom: 10px; color: #555;">"This course transformed my career!
+                        The practical approach helped me land my dream job at Deloitte."</p>
+                    <div class="reviewer">
+                        <img src="https://via.placeholder.com/50" alt="User">
+                        <div>
+                            <h4>Priya Sharma</h4>
+                            <p style="font-size: 0.7rem; color: gray;">Financial Analyst</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="review-card">
+                    <div style="color: #f59e0b; margin-bottom: 5px; font-size: 0.8rem;">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                            class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                            class="fa-solid fa-star"></i>
+                    </div>
+                    <p style="font-style: italic; margin-bottom: 10px; color: #555;">"Excellent course content! I now
+                        feel confident handling complex financial models at work."</p>
+                    <div class="reviewer">
+                        <img src="https://via.placeholder.com/50" alt="User">
+                        <div>
+                            <h4>Amit Patel</h4>
+                            <p style="font-size: 0.7rem; color: gray;">Investment Banking</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <div class="logo" style="margin-bottom: 15px;">
+                        <i class="fa-solid fa-graduation-cap"></i> Eduvise Institute
+                    </div>
+                    <p style="color: #666; font-size: 0.8rem;">Empowering finance professionals with world-class
+                        training in financial modeling, analysis, and valuation techniques.</p>
+                </div>
+                <div>
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links" style="list-style: none;">
+                        <li><a href="#Course Overview">Course Overview</a></li>
+                        <li><a href="terms.html">Terms & Conditions</a></li>
+                        <li><a href="privacy.html">Privacy policy</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 id="Contact Us">Contact Us</h3>
+                    <p style="color: #666; font-size: 0.8rem;">Office No. - 323, Magnolia Business Center, Baner -
+                        Pashan Link Rd, behind Start Bazar, Baner, Pune, Maharashtra 411021</p>
+                    <p style="color: #666; font-size: 0.8rem;">+91 84518 67680</p>
+                    <p style="color: #666; font-size: 0.8rem;">info@eduvise.com</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div id="paymentModal" class="payment-overlay">
+        <div class="paytm-modal">
+            <div class="close-btn" onclick="closePayment()">&times;</div>
+
+            <div class="paytm-left">
+                <div class="paytm-logo">paytm <span>payments bank</span></div>
+
+                <div class="order-summary">
+                    <div class="order-title">Ordering For:</div>
+                    <div class="order-item">Financial Modelling & Analysis Course</div>
+                    <div class="order-title">Order ID:</div>
+                    <div style="font-family: monospace; color: #333; margin-bottom: 10px; font-size: 0.8rem;">#EDU88429X
+                    </div>
+
+                    <div class="total-amount">
+                        <span>Total Payable:</span>
+                        <span class="price-tag">₹14,599</span>
+                    </div>
+                </div>
+
+                <div style="margin-top: 20px; font-size: 0.75rem; color: #777;">
+                    <i class="fa-solid fa-lock" style="color: green;"></i> 100% Secure Payments via Paytm Gateway
+                </div>
+            </div>
+
+            <div class="paytm-right">
+                <h3 style="margin-bottom: 15px;">Select Payment Option</h3>
+
+                <div class="payment-tabs">
+                    <div class="tab active">Scan QR</div>
+                    <div class="tab">Debit/Credit Card</div>
+                    <div class="tab">Net Banking</div>
+                </div>
+
+                <div class="qr-container">
+                    <p style="margin-bottom: 10px; font-weight: 500; font-size: 0.85rem;">Scan with any UPI App</p>
+                    <div class="qr-box">
+                        <i class="fa-solid fa-qrcode"></i>
+                    </div>
+                    <div style="display: flex; gap: 8px; justify-content: center; opacity: 0.7; font-size: 0.9rem;">
+                        <i class="fa-brands fa-google-pay"></i>
+                        <i class="fa-brands fa-amazon-pay"></i>
+                        <span style="font-weight: bold; font-style: italic;">UPI</span>
+                    </div>
+                </div>
+
+                <button class="pay-btn-final" onclick="processPayment()">
+                    Pay ₹19,999 Securely
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openPayment() {
+            document.getElementById('paymentModal').style.display = 'flex';
+        }
+
+        function closePayment() {
+            document.getElementById('paymentModal').style.display = 'none';
+        }
+
+        function processPayment() {
+            const btn = document.querySelector('.pay-btn-final');
+            const originalText = btn.innerText;
+
+            btn.innerText = "Processing...";
+            btn.style.background = "#009ac9";
+
+            setTimeout(() => {
+                btn.innerText = "Success! Redirecting...";
+                btn.style.background = "#10b981";
+
+                setTimeout(() => {
+                    closePayment();
+                    alert("Enrollment Successful! Welcome to Eduvise.");
+                    btn.innerText = originalText;
+                    btn.style.background = "var(--paytm-blue)";
+                }, 1500);
+            }, 2000);
+        }
+
+        // Close modal if clicked outside
+        window.onclick = function (event) {
+            const modal = document.getElementById('paymentModal');
+            if (event.target == modal) {
+                closePayment();
+            }
+        }
+
+        function togglePlay() {
+            const video = document.getElementById('heroVideo');
+            const overlay = document.getElementById('playOverlay');
+
+            if (video.paused) {
+                video.play();
+                video.controls = true; // Show default controls once playing
+                overlay.style.display = 'none'; // Hide custom button
+            } else {
+                video.pause();
+                overlay.style.display = 'flex'; // Show custom button again
+            }
+        }
+    </script>
+
+</body>
+
+</html>
