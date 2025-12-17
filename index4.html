@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure Payment - Eduvise Institute</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-blue: #1e3a8a;
+            --bg-light: #f3f4f6;
+            --white: #ffffff;
+            --text-dark: #111827;
+            --text-gray: #6b7280;
+            --border-color: #d1d5db; /* Slightly darker border for smaller text contrast */
+            --success-green: #10b981;
+            --cta-blue: #3b82f6;
+        }
+        /* ::-webkit-scrollbar-track-piece */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            /* SIGNIFICANT REDUCTION: Base font size 12px */
+            font-size: 12px; 
+            line-height: 1.4;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--white);
+            border-bottom: 1px solid var(--border-color);
+            padding: 8px 0; /* Tighter padding */
+        }
+
+        .container {
+            max-width: 960px; /* Reduced width for compact look */
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-weight: 700;
+            font-size: 1rem; /* Smaller logo */
+            color: var(--primary-blue);
+        }
+
+        .logo i {
+            margin-right: 6px;
+            color: #f59e0b;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .course-link {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.8rem;
+        }
+
+        .btn-enroll-nav {
+            background-color: var(--primary-blue);
+            color: white;
+            padding: 6px 12px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        /* Main Layout */
+        .main-grid {
+            display: grid;
+            grid-template-columns: 2.2fr 1fr;
+            gap: 20px;
+            padding: 20px 0;
+        }
+
+        /* Left Column: Form */
+        .payment-section {
+            background-color: var(--white);
+            border-radius: 6px;
+            padding: 20px;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+            margin-bottom: 15px;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            color: var(--text-gray);
+            text-decoration: none;
+            font-size: 0.8rem;
+            margin-bottom: 10px;
+        }
+        .back-link:hover { color: var(--primary-blue); }
+
+        h2.section-title {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 1.1rem; /* Much smaller header */
+            margin-bottom: 15px;
+            color: var(--text-dark);
+            font-weight: 600;
+        }
+
+        /* Payment Methods Grid */
+        .payment-methods {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .method-card {
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            padding: 10px;
+            cursor: pointer;
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+            transition: all 0.2s;
+        }
+
+        .method-card.active {
+            border: 1px solid var(--primary-blue);
+            background-color: #eff6ff;
+            box-shadow: 0 0 0 1px var(--primary-blue); /* Sharp active state */
+        }
+
+        .method-icon {
+            font-size: 1rem;
+            color: var(--text-gray);
+            margin-top: 1px;
+        }
+        
+        .method-info h4 { font-size: 0.8rem; margin-bottom: 1px; font-weight: 600; }
+        .method-info p { font-size: 0.7rem; color: var(--text-gray); }
+
+        .check-circle {
+            margin-left: auto;
+            color: var(--primary-blue);
+            display: none;
+            font-size: 0.8rem;
+        }
+        .method-card.active .check-circle { display: block; }
+
+        /* Form Fields */
+        .form-group { margin-bottom: 12px; } /* Tighter vertical spacing */
+        .form-label { display: block; font-size: 0.75rem; margin-bottom: 4px; color: var(--text-dark); font-weight: 600; }
+        
+        .form-input {
+            width: 100%;
+            padding: 8px 10px; /* Small input */
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            font-size: 0.85rem;
+            outline: none;
+            transition: border-color 0.2s;
+            background-color: #fff;
+        }
+        .form-input:focus { border-color: var(--primary-blue); }
+        .form-input::placeholder { font-size: 0.8rem; }
+
+        .form-row { display: flex; gap: 12px; }
+        .col { flex: 1; }
+
+        .card-input-wrapper { position: relative; }
+        .card-icon { position: absolute; right: 10px; top: 9px; color: var(--text-gray); font-size: 0.9rem; }
+
+        /* Billing Address Section Title */
+        .billing-title {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.9rem;
+            margin: 20px 0 10px;
+            font-weight: 600;
+            color: var(--text-dark);
+            border-bottom: 1px solid #eee;
+            padding-bottom: 5px;
+        }
+
+        .pay-btn {
+            width: 100%;
+            background-color: #818cf8;
+            color: white;
+            padding: 10px; /* Compact button */
+            border: none;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            margin-top: 10px;
+        }
+        .pay-btn:hover { opacity: 0.9; }
+
+        /* Security Badge Section */
+        .security-badge {
+            background-color: #f0fdf4;
+            border: 1px solid #dcfce7;
+            padding: 12px;
+            border-radius: 6px;
+            margin-top: 15px;
+        }
+
+        .security-header {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--text-dark);
+            font-size: 0.85rem;
+        }
+        
+        .security-list { list-style: none; }
+        .security-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+            font-size: 0.75rem;
+            margin-bottom: 6px;
+            color: var(--text-gray);
+            line-height: 1.3;
+        }
+        .security-list li i { color: var(--success-green); margin-top: 2px; }
+
+        /* Accepted Methods Footer */
+        .accepted-methods {
+            margin-top: 12px;
+            padding-top: 12px;
+            border-top: 1px solid var(--border-color);
+        }
+        .accepted-title { font-size: 0.75rem; font-weight: 600; margin-bottom: 6px; }
+        .methods-row { display: flex; gap: 6px; }
+        .method-pill {
+            background: #f9fafb;
+            border: 1px solid var(--border-color);
+            padding: 3px 8px;
+            border-radius: 3px;
+            font-size: 0.7rem;
+            color: var(--text-gray);
+            flex: 1;
+            text-align: center;
+        }
+
+        /* Right Column: Order Summary */
+        .order-summary-card {
+            background-color: var(--white);
+            border-radius: 6px;
+            padding: 15px;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+            height: fit-content;
+            position: sticky;
+            top: 15px;
+        }
+
+        .summary-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .course-preview {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 12px;
+        }
+        
+        .course-img {
+            width: 60px;
+            height: 45px;
+            background-color: #ddd;
+            border-radius: 4px;
+            object-fit: cover;
+        }
+
+        .course-info h3 { font-size: 0.8rem; margin-bottom: 2px; line-height: 1.3; font-weight: 600; }
+        .course-info p { font-size: 0.7rem; color: var(--text-gray); }
+
+        .price-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 6px;
+            font-size: 0.8rem;
+            color: var(--text-gray);
+        }
+
+        .total-row {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 1px solid var(--border-color);
+            font-weight: 700;
+            font-size: 1rem;
+            color: var(--primary-blue);
+        }
+
+        .features-box {
+            background-color: #f0fdf4;
+            border: 1px solid #dcfce7;
+            border-radius: 4px;
+            padding: 10px;
+            margin-top: 12px;
+        }
+
+        .features-title {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-weight: 600;
+            font-size: 0.75rem;
+            margin-bottom: 6px;
+        }
+        
+        .features-list { list-style: none; }
+        .features-list li {
+            font-size: 0.7rem;
+            color: var(--text-gray);
+            margin-bottom: 4px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .features-list li i { color: var(--success-green); font-size: 0.65rem; }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .main-grid { grid-template-columns: 1fr; }
+            .payment-methods { grid-template-columns: 1fr; }
+            .form-row { flex-direction: column; gap: 8px; }
+        }
+        #512{
+            margin-left: 100px;
+
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <img src="WhatsApp Image 2025-12-14 at 1.52.32 PM.jpeg" width="30px" alt="">
+                <!-- <i class="fa-solid fa-graduation-cap"></i> -->
+                
+                <div id="512">&nbsp Eduvise Institute</div>
+            </div>
+            <div class="header-right">
+                <a href="index.html" class="course-link"><i class="fa-solid fa-graduation-cap"></i> Course Overview</a>
+                <a href="#" class="btn-enroll-nav"><i class="fa-regular fa-credit-card"></i> Enroll Now</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <a href="index.html" class="back-link"><i class="fa-solid fa-chevron-left"></i> Back to Course</a>
+
+        <div class="main-grid">
+            
+            <div class="left-col">
+                <div class="payment-section">
+                    <h2 class="section-title"><i class="fa-regular fa-credit-card"></i> Complete Your Payment</h2>
+                    
+                    <p class="form-label">Select Payment Method</p>
+                    <div class="payment-methods">
+                        <div class="method-card active">
+                            <i class="fa-regular fa-credit-card method-icon"></i>
+                            <div class="method-info">
+                                <h4>Credit/Debit Card</h4>
+                                <p>Visa, Mastercard, RuPay</p>
+                            </div>
+                            <i class="fa-solid fa-circle-check check-circle"></i>
+                        </div>
+                        
+                        <div class="method-card">
+                            <i class="fa-solid fa-mobile-screen method-icon"></i>
+                            <div class="method-info">
+                                <h4>UPI</h4>
+                                <p>Google Pay, PhonePe, Paytm</p>
+                            </div>
+                        </div>
+
+                        <div class="method-card">
+                            <i class="fa-solid fa-building-columns method-icon"></i>
+                            <div class="method-info">
+                                <h4>Net Banking</h4>
+                                <p>All major banks</p>
+                            </div>
+                        </div>
+
+                        <div class="method-card">
+                            <i class="fa-solid fa-wallet method-icon"></i>
+                            <div class="method-info">
+                                <h4>Digital Wallet</h4>
+                                <p>Paytm, PhonePe, Amazon Pay</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Card Number</label>
+                        <div class="card-input-wrapper">
+                            <input type="text" class="form-input" placeholder="1234 5678 9012 3456">
+                            <i class="fa-regular fa-credit-card card-icon"></i>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="col">
+                            <div class="form-group">
+                                <label class="form-label">Expiry Date</label>
+                                <input type="text" class="form-input" placeholder="MM/YY">
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-group">
+                                <label class="form-label">CVV <i class="fa-solid fa-circle-info" style="color:#aaa;"></i></label>
+                                <input type="text" class="form-input" placeholder="123">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Cardholder Name</label>
+                        <input type="text" class="form-input" placeholder="Name as on card">
+                    </div>
+
+                    <div class="billing-title">
+                        <i class="fa-solid fa-location-dot" style="color: var(--primary-blue);"></i> Billing Address
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Full Name</label>
+                        <input type="text" class="form-input" placeholder="Enter your full name">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Email Address</label>
+                        <input type="email" class="form-input" placeholder="your.email@example.com">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Phone Number</label>
+                        <input type="tel" class="form-input" placeholder="+91 98765 43210">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Address</label>
+                        <input type="text" class="form-input" placeholder="House/Flat No., Street, Area">
+                    </div>
+
+                    <div class="form-row">
+                        <div class="col">
+                            <div class="form-group">
+                                <label class="form-label">City</label>
+                                <input type="text" class="form-input" placeholder="City">
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-group">
+                                <label class="form-label">Pincode</label>
+                                <input type="text" class="form-input" placeholder="400001">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">State</label>
+                        <select class="form-input" style="background: white;">
+                            <option>Select State</option>
+                            <option>Maharashtra</option>
+                            <option>Delhi</option>
+                            <option>Karnataka</option>
+                        </select>
+                    </div>
+
+                    <button class="pay-btn">
+                        <i class="fa-solid fa-lock"></i> Pay ₹19,999
+                    </button>
+
+                </div>
+
+                <div class="payment-section" style="padding: 20px;">
+                    <div class="security-header">
+                        <i class="fa-solid fa-shield-halved" style="color: var(--success-green);"></i>
+                        <span>Secure Payment Gateway</span>
+                    </div>
+                    <ul class="security-list">
+                        <li><i class="fa-solid fa-lock"></i> <div><strong>256-bit SSL Encryption</strong><br>Your data is encrypted</div></li>
+                        <li><i class="fa-solid fa-check-shield"></i> <div><strong>PCI DSS Compliant</strong><br>Industry standard security</div></li>
+                        <li><i class="fa-solid fa-building-columns"></i> <div><strong>Secure Payment</strong><br>Protected by RBI guidelines</div></li>
+                    </ul>
+                    
+                    <div class="accepted-methods">
+                        <div class="accepted-title">Accepted Payment Methods</div>
+                        <div class="methods-row">
+                            <div class="method-pill">Visa</div>
+                            <div class="method-pill">Mastercard</div>
+                            <div class="method-pill">RuPay</div>
+                            <div class="method-pill">UPI</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div style="text-align: center; font-size: 0.7rem; color: var(--text-gray); margin-top: 15px;">
+                    By completing this purchase, you agree to our Terms of Service and Privacy Policy
+                </div>
+            </div>
+
+            <div class="right-col">
+                <div class="order-summary-card">
+                    <div class="summary-header">
+                        <i class="fa-solid fa-cart-shopping"></i> Order Summary
+                    </div>
+
+                    <div class="course-preview">
+                        <img src="https://via.placeholder.com/60x45" alt="Course" class="course-img">
+                        <div class="course-info">
+                            <h3>Financial Modelling & Analysis - Professional...</h3>
+                            <p>by Rajesh Kumar</p>
+                            <p style="margin-top: 3px;"><i class="fa-regular fa-clock"></i> 12 weeks &nbsp; <i class="fa-solid fa-video"></i> 48 lessons</p>
+                        </div>
+                    </div>
+
+                    <div class="price-row">
+                        <span>Course Price</span>
+                        <span>₹19,999</span>
+                    </div>
+                    <!-- <div class="price-row">
+                        <span>GST (18%)</span> 
+                        <span>₹2,628</span> 
+                    </div> -->
+
+                    <div class="total-row">
+                        <span>Total Amount</span>
+                        <span>₹19,999</span>
+                    </div>
+
+                    <div class="features-box">
+                        <div class="features-title">
+                            <i class="fa-solid fa-circle-check" style="color: var(--success-green);"></i> What's Included
+                        </div>
+                        <ul class="features-list">
+                            <li><i class="fa-solid fa-check"></i> Lifetime access to course content</li>
+                            <li><i class="fa-solid fa-check"></i> Downloadable resources and templates</li>
+                            <li><i class="fa-solid fa-check"></i> Certificate of completion</li>
+                            <li><i class="fa-solid fa-check"></i> 24/7 instructor support</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>
