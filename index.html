@@ -4,7 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <title>Eduvise Institute - Financial Modelling</title>
+
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="icon" type="image/png" href="favicon.png">
@@ -39,7 +41,7 @@
             color: var(--text-dark);
             line-height: 1.5;
             overflow-x: hidden;
-            /* Reduced base font size */
+
             font-size: 12px;
         }
 
@@ -63,17 +65,17 @@
             font-size: 0.85rem;
         }
 
-        /* --- Utilities --- */
+
         .container {
             max-width: 1000px;
-            /* Made container smaller */
+
             margin: 0 auto;
             padding: 0 15px;
         }
 
         .btn {
             padding: 8px 16px;
-            /* Reduced padding */
+
             border-radius: 5px;
             font-weight: 600;
             text-decoration: none;
@@ -82,7 +84,7 @@
             border: none;
             transition: all 0.3s ease;
             font-size: 0.8rem;
-            /* Smaller button text */
+
         }
 
         .btn:hover {
@@ -99,7 +101,6 @@
             background-color: var(--cta-hover);
         }
 
-        /* Reduced section padding significantly */
         .section-padding {
             padding: 40px 0;
         }
@@ -112,15 +113,15 @@
             color: var(--primary-blue);
         }
 
-        /* --- Navbar --- */
+
         header {
             background-color: var(--white);
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-            position: sticky;
+            /* position: sticky; */
             top: 0;
             z-index: 1000;
             padding: 10px 0;
-            /* Reduced padding */
+
         }
 
         nav {
@@ -134,7 +135,7 @@
             align-items: center;
             font-weight: 700;
             font-size: 1rem;
-            /* Smaller logo */
+
             color: var(--dark-blue);
         }
 
@@ -147,7 +148,7 @@
         .nav-links {
             display: flex;
             gap: 25px;
-            /* Reduced gap */
+
             list-style: none;
         }
 
@@ -164,12 +165,12 @@
             color: var(--primary-blue);
         }
 
-        /* --- Hero Section --- */
+
         .hero {
             background-color: var(--primary-blue);
             color: white;
             padding: 40px 0;
-            /* Reduced padding */
+
         }
 
         .hero-content {
@@ -181,7 +182,7 @@
 
         .hero-text h1 {
             font-size: 2.2rem;
-            /* Halved from 3.5rem roughly */
+
             line-height: 1.1;
             margin-bottom: 15px;
         }
@@ -196,7 +197,7 @@
             background: rgba(255, 255, 255, 0.1);
             border: 1px solid rgba(255, 255, 255, 0.2);
             padding: 15px;
-            /* Reduced padding */
+
             border-radius: 8px;
             transition: transform 0.3s;
             max-width: 300px;
@@ -219,7 +220,7 @@
             color: var(--cta-orange);
         }
 
-        /* Reduced */
+
         .original-price {
             text-decoration: line-through;
             opacity: 0.7;
@@ -238,7 +239,7 @@
             background-color: #3b82f6;
             border-radius: 10px;
             height: 250px;
-            /* Reduced height */
+
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -257,7 +258,7 @@
         .play-btn {
             width: 50px;
             height: 50px;
-            /* Smaller button */
+
             background: var(--cta-orange);
             border-radius: 50%;
             display: flex;
@@ -273,7 +274,7 @@
             transform: scale(1.1);
         }
 
-        /* --- Features Section --- */
+
         .features-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -283,7 +284,7 @@
         .feature-card {
             background: white;
             padding: 20px;
-            /* Reduced padding */
+
             border-radius: 8px;
             box-shadow: 0 3px 5px rgba(0, 0, 0, 0.05);
             display: flex;
@@ -303,7 +304,7 @@
             background: #eff6ff;
             width: 35px;
             height: 35px;
-            /* Smaller icon box */
+
             display: flex;
             align-items: center;
             justify-content: center;
@@ -311,12 +312,12 @@
             flex-shrink: 0;
         }
 
-        /* --- Curriculum --- */
+
         .module-card {
             background: white;
             border-radius: 8px;
             padding: 20px;
-            /* Reduced padding */
+
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
             border-left: 4px solid var(--dark-blue);
             margin-bottom: 15px;
@@ -365,7 +366,6 @@
             font-size: 0.8rem;
         }
 
-        /* --- Instructor & Reviews --- */
         .review-card {
             background: white;
             border-radius: 10px;
@@ -398,7 +398,6 @@
             gap: 10px;
         }
 
-        /* --- Footer --- */
         footer {
             background-color: white;
             padding: 30px 0 15px;
@@ -423,7 +422,7 @@
             padding-left: 3px;
         }
 
-        /* --- PAYTM PAYMENT GATEWAY OVERLAY --- */
+
         .payment-overlay {
             display: none;
             position: fixed;
@@ -441,10 +440,10 @@
         .paytm-modal {
             background: white;
             width: 600px;
-            /* Reduced width */
+
             max-width: 95%;
             height: 450px;
-            /* Reduced height */
+
             border-radius: 8px;
             overflow: hidden;
             display: flex;
@@ -617,9 +616,7 @@
             }
         }
 
-        /* --- Updated Video Container --- */
         .video-placeholder {
-            /* Removed background-color and border */
             background: transparent;
             border: none;
             border-radius: 10px;
@@ -629,14 +626,11 @@
             justify-content: center;
             align-items: center;
             position: relative;
-            /* Essential for the play button positioning */
             cursor: pointer;
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-            /* Adds a nice shadow to the video itself */
         }
 
-        /* Ensure video fills the space */
         .video-placeholder video {
             width: 100%;
             height: 100%;
@@ -644,7 +638,6 @@
             border-radius: 10px;
         }
 
-        /* --- New Custom Play Button Styles --- */
         .custom-play-overlay {
             position: absolute;
             top: 0;
@@ -655,7 +648,6 @@
             justify-content: center;
             align-items: center;
             background: rgba(0, 0, 0, 0.1);
-            /* Slight dark tint over video before playing */
             transition: all 0.3s ease;
             z-index: 10;
         }
@@ -677,7 +669,6 @@
             color: white;
             font-size: 1.5rem;
             margin-left: 4px;
-            /* Slight visual correction for play icon center */
         }
 
         .video-placeholder:hover .play-circle {
@@ -685,7 +676,6 @@
             background-color: var(--cta-hover);
         }
 
-        /* Pulse Animation */
         @keyframes pulse-orange {
             0% {
                 transform: scale(0.95);
@@ -711,12 +701,13 @@
         <div class="container">
             <nav>
                 <div class="logo">
-                    <img src="WhatsApp Image 2025-12-14 at 1.52.32 PM.jpeg" width="25px" alt="">
+                    <img src="Eduvise Logo.jpeg" width="25px" alt="">
                     &nbsp Eduvise Institute
                 </div>
 
                 <ul class="nav-links">
                     <li><a href="index.html">Home</a></li>
+                    <li><a href="Blogs.html">Blogs</a></li>
                     <li><a href="About.html">About Us</a></li>
                     <li><a href="#Contact Us">Contact</a></li>
                 </ul>
@@ -727,7 +718,7 @@
 
     <section class="hero">
         <div class="container hero-content">
-            <!-- <video src="WhatsApp Video 2025-12-14 at 3.47.17 PM (1).mp4"></video> -->
+
             <div class="hero-text">
                 <h4><i class="fa-solid fa-graduation-cap"></i> Professional Certification Course</h4>
                 <h1>Financial Modelling & Analysis</h1>
@@ -747,7 +738,7 @@
                         <span class="badge">Save 50 %</span>
                     </div>
                     <button class="btn btn-primary" style="width: 100%;">
-                    
+
                         <i class="fa-solid fa-cart-shopping"></i> <a href="index4.html"> Enroll Now</a>
                     </button>
                     <p style="margin-top: 8px; font-size: 0.7rem; text-align: center; opacity: 0.8;">
@@ -758,7 +749,7 @@
 
             <div class="video-placeholder" onclick="togglePlay()">
                 <video id="heroVideo" width="100%" height="100%">
-                    <source src="WhatsApp Video 2025-12-14 at 3.47.17 PM (1).mp4" type="video/mp4">
+                    <source src="Eduvise-Institute-introductory-video" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
 
@@ -922,7 +913,7 @@
                     <p style="font-style: italic; margin-bottom: 10px; color: #555;">"This course transformed my career!
                         The practical approach helped me land my dream job at Deloitte."</p>
                     <div class="reviewer">
-                        <img src="https://via.placeholder.com/50" alt="User">
+                        <img src="Priya-Sharma-Eduvise-Institute-Student-review.jpg" alt="Priya Sharma, Investment Banker - Successful graduate of Eduvise Institute Financial Modelling course">
                         <div>
                             <h4>Priya Sharma</h4>
                             <p style="font-size: 0.7rem; color: gray;">Financial Analyst</p>
@@ -938,7 +929,7 @@
                     <p style="font-style: italic; margin-bottom: 10px; color: #555;">"Excellent course content! I now
                         feel confident handling complex financial models at work."</p>
                     <div class="reviewer">
-                        <img src="https://via.placeholder.com/50" alt="User">
+                        <img src="Amit-Patel-Eduvise-Institute-Student-Review.jpg" alt="Amit Patel, Investment Banker - Successful graduate of Eduvise Institute Financial Modelling course">
                         <div>
                             <h4>Amit Patel</h4>
                             <p style="font-size: 0.7rem; color: gray;">Investment Banking</p>
@@ -1074,11 +1065,11 @@
 
             if (video.paused) {
                 video.play();
-                video.controls = true; // Show default controls once playing
-                overlay.style.display = 'none'; // Hide custom button
+                video.controls = true;
+                overlay.style.display = 'none';
             } else {
                 video.pause();
-                overlay.style.display = 'flex'; // Show custom button again
+                overlay.style.display = 'flex';
             }
         }
     </script>
