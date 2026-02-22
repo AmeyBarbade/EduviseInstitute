@@ -3,8 +3,9 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="description" content="Master financial modeling with Eduvise Institute. Learn industry-standard techniques and valuation skills used by top investment banks. Enroll today!">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    
     <title>Eduvise Institute - Financial Modelling</title>
 
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -701,7 +702,7 @@
         <div class="container">
             <nav>
                 <div class="logo">
-                    <img src="Eduvise Logo.jpeg" width="25px" alt="">
+                    <img src="Eduvise Logo.jpeg" width="25px" alt="Eduvise-institute-logo">
                     &nbsp Eduvise Institute
                 </div>
 
@@ -737,10 +738,11 @@
                         <span class="original-price">₹30,000 </span>
                         <span class="badge">Save 50 %</span>
                     </div>
+                    <a href="index4.html">
                     <button class="btn btn-primary" style="width: 100%;">
 
-                        <i class="fa-solid fa-cart-shopping"></i> <a href="index4.html"> Enroll Now</a>
-                    </button>
+                        <i class="fa-solid fa-cart-shopping"></i> Enroll Now
+                    </button></a>
                     <p style="margin-top: 8px; font-size: 0.7rem; text-align: center; opacity: 0.8;">
                         <i class="fa-solid fa-shield-halved"></i> 30-Day Money Back Guarantee
                     </p>
@@ -970,65 +972,9 @@
             </div>
         </div>
     </footer>
-
-    <div id="paymentModal" class="payment-overlay">
-        <div class="paytm-modal">
-            <div class="close-btn" onclick="closePayment()">&times;</div>
-
-            <div class="paytm-left">
-                <div class="paytm-logo">paytm <span>payments bank</span></div>
-
-                <div class="order-summary">
-                    <div class="order-title">Ordering For:</div>
-                    <div class="order-item">Financial Modelling & Analysis Course</div>
-                    <div class="order-title">Order ID:</div>
-                    <div style="font-family: monospace; color: #333; margin-bottom: 10px; font-size: 0.8rem;">#EDU88429X
-                    </div>
-
-                    <div class="total-amount">
-                        <span>Total Payable:</span>
-                        <span class="price-tag">₹14,599</span>
-                    </div>
-                </div>
-
-                <div style="margin-top: 20px; font-size: 0.75rem; color: #777;">
-                    <i class="fa-solid fa-lock" style="color: green;"></i> 100% Secure Payments via Paytm Gateway
-                </div>
-            </div>
-
-            <div class="paytm-right">
-                <h3 style="margin-bottom: 15px;">Select Payment Option</h3>
-
-                <div class="payment-tabs">
-                    <div class="tab active">Scan QR</div>
-                    <div class="tab">Debit/Credit Card</div>
-                    <div class="tab">Net Banking</div>
-                </div>
-
-                <div class="qr-container">
-                    <p style="margin-bottom: 10px; font-weight: 500; font-size: 0.85rem;">Scan with any UPI App</p>
-                    <div class="qr-box">
-                        <i class="fa-solid fa-qrcode"></i>
-                    </div>
-                    <div style="display: flex; gap: 8px; justify-content: center; opacity: 0.7; font-size: 0.9rem;">
-                        <i class="fa-brands fa-google-pay"></i>
-                        <i class="fa-brands fa-amazon-pay"></i>
-                        <span style="font-weight: bold; font-style: italic;">UPI</span>
-                    </div>
-                </div>
-
-                <button class="pay-btn-final" onclick="processPayment()">
-                    Pay ₹19,999 Securely
-                </button>
-            </div>
-        </div>
-    </div>
+    
 
     <script>
-        function openPayment() {
-            document.getElementById('paymentModal').style.display = 'flex';
-        }
-
         
         const vid = document.getElementById("heroVideo");
         vid.addEventListener("ended", () => {
