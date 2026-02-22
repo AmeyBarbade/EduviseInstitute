@@ -4,12 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
     <title>Eduvise Institute - Financial Modelling</title>
 
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="icon" type="image/png" href="Eduvise Logo.jpeg">
 
     <style>
         html {
@@ -707,7 +707,7 @@
 
                 <ul class="nav-links">
                     <li><a href="index.html">Home</a></li>
-                    <li><a href="Blogs.html">Blogs</a></li>
+                    <!-- <li><a href="Blogs.html">Blogs</a></li> -->
                     <li><a href="About.html">About Us</a></li>
                     <li><a href="#Contact Us">Contact</a></li>
                 </ul>
@@ -748,7 +748,7 @@
             </div>
 
             <div class="video-placeholder" onclick="togglePlay()">
-                <video id="heroVideo" width="100%" height="100%">
+                <video id="heroVideo" width="100%" height="100%" controls preload="metadata">
                     <source src="Eduvise-Institute-introductory-video.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
@@ -913,7 +913,8 @@
                     <p style="font-style: italic; margin-bottom: 10px; color: #555;">"This course transformed my career!
                         The practical approach helped me land my dream job at Deloitte."</p>
                     <div class="reviewer">
-                        <img src="Priya-Sharma-Eduvise-Institute-Student-review.jpg" alt="Priya Sharma, Investment Banker - Successful graduate of Eduvise Institute Financial Modelling course">
+                        <img src="Priya-Sharma-Eduvise-Institute-Student-review.jpg"
+                            alt="Priya Sharma, Investment Banker - Successful graduate of Eduvise Institute Financial Modelling course">
                         <div>
                             <h4>Priya Sharma</h4>
                             <p style="font-size: 0.7rem; color: gray;">Financial Analyst</p>
@@ -929,7 +930,8 @@
                     <p style="font-style: italic; margin-bottom: 10px; color: #555;">"Excellent course content! I now
                         feel confident handling complex financial models at work."</p>
                     <div class="reviewer">
-                        <img src="Amit-Patel-Eduvise-Institute-Student-Review.jpg" alt="Amit Patel, Investment Banker - Successful graduate of Eduvise Institute Financial Modelling course">
+                        <img src="Amit-Patel-Eduvise-Institute-Student-Review.jpg"
+                            alt="Amit Patel, Investment Banker - Successful graduate of Eduvise Institute Financial Modelling course">
                         <div>
                             <h4>Amit Patel</h4>
                             <p style="font-size: 0.7rem; color: gray;">Investment Banking</p>
@@ -1027,51 +1029,61 @@
             document.getElementById('paymentModal').style.display = 'flex';
         }
 
-        function closePayment() {
-            document.getElementById('paymentModal').style.display = 'none';
-        }
+        
+        const vid = document.getElementById("heroVideo");
+        vid.addEventListener("ended", () => {
+            vid.currentTime = 0;  
+            vid.pause();           
+            vid.load();            
+        });
+    
 
-        function processPayment() {
-            const btn = document.querySelector('.pay-btn-final');
-            const originalText = btn.innerText;
 
-            btn.innerText = "Processing...";
-            btn.style.background = "#009ac9";
+    function closePayment() {
+    document.getElementById('paymentModal').style.display = 'none';
+    }
 
-            setTimeout(() => {
-                btn.innerText = "Success! Redirecting...";
-                btn.style.background = "#10b981";
+    function processPayment() {
+    const btn = document.querySelector('.pay-btn-final');
+    const originalText = btn.innerText;
 
-                setTimeout(() => {
-                    closePayment();
-                    alert("Enrollment Successful! Welcome to Eduvise.");
-                    btn.innerText = originalText;
-                    btn.style.background = "var(--paytm-blue)";
-                }, 1500);
-            }, 2000);
-        }
+    btn.innerText = "Processing...";
+    btn.style.background = "#009ac9";
 
-        // Close modal if clicked outside
-        window.onclick = function (event) {
-            const modal = document.getElementById('paymentModal');
-            if (event.target == modal) {
-                closePayment();
-            }
-        }
+    setTimeout(() => {
+    btn.innerText = "Success! Redirecting...";
+    btn.style.background = "#10b981";
 
-        function togglePlay() {
-            const video = document.getElementById('heroVideo');
-            const overlay = document.getElementById('playOverlay');
+    setTimeout(() => {
+    closePayment();
+    alert("Enrollment Successful! Welcome to Eduvise.");
+    btn.innerText = originalText;
+    btn.style.background = "var(--paytm-blue)";
+    }, 1500);
+    }, 2000);
+    }
 
-            if (video.paused) {
-                video.play();
-                video.controls = true;
-                overlay.style.display = 'none';
-            } else {
-                video.pause();
-                overlay.style.display = 'flex';
-            }
-        }
+    // Close modal if clicked outside
+    window.onclick = function (event) {
+    const modal = document.getElementById('paymentModal');
+    if (event.target == modal) {
+    closePayment();
+    }
+    }
+
+    function togglePlay() {
+    const video = document.getElementById('heroVideo');
+    const overlay = document.getElementById('playOverlay');
+
+    if (video.paused) {
+    video.play();
+    video.controls = true;
+    overlay.style.display = 'none';
+    } else {
+    video.pause();
+    overlay.style.display = 'flex';
+    }
+    }
     </script>
 
 </body>

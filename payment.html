@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Gateway-Razorpay</title>
+    <style>
+        .overlay {
+            display: none;
+            /* Hidden by default */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .rzp-modal {
+            background: #fff;
+            width: 400px;
+            border-radius: 8px;
+            overflow: hidden;
+            font-family: 'Segoe UI', sans-serif;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .rzp-header {
+            background: #1A46A0;
+            /* Matches your Eduvise branding */
+            color: white;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .rzp-body {
+            padding: 20px;
+        }
+
+        .method-option {
+            padding: 12px;
+            border: 1px solid #ddd;
+            margin-bottom: 10px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .method-option.active {
+            border-color: #1A46A0;
+            background: #f0f4ff;
+        }
+
+        .pay-btn {
+            width: 100%;
+            background: #23e2a0;
+            /* Green success color */
+            color: white;
+            border: none;
+            padding: 15px;
+            border-radius: 4px;
+            font-weight: bold;
+            margin-top: 20px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="razorpay-overlay" class="overlay">
+        <div class="rzp-modal">
+            <div class="rzp-header">
+                <div class="rzp-logo">
+                    <img src="your-logo.png" alt="Eduvise">
+                    <div>
+                        <h3>Eduvise Institute</h3>
+                        <p>Financial Modelling & Analysis</p>
+                    </div>
+                </div>
+                <div class="rzp-amount">₹14,999</div>
+            </div>
+
+            <div class="rzp-body">
+                <p class="section-title">CHOOSE PAYMENT METHOD</p>
+                <div class="method-option active">
+                    <span class="icon">💳</span> Card (Visa, MasterCard, RuPay)
+                </div>
+                <div class="method-option">
+                    <span class="icon">📱</span> UPI (Google Pay, PhonePe)
+                </div>
+                <div class="method-option">
+                    <span class="icon">🏦</span> Netbanking
+                </div>
+
+                <div class="dummy-card-form">
+                    <input type="text" placeholder="Card Number (4111 ....)" disabled>
+                    <div class="row">
+                        <input type="text" placeholder="MM/YY" disabled>
+                        <input type="text" placeholder="CVV" disabled>
+                    </div>
+                    <button class="pay-btn">Pay ₹14,999</button>
+                </div>
+            </div>
+            <div class="rzp-footer">
+                <p>Trusted by 50M+ businesses</p>
+                <img src="razorpay-badge.png" alt="Razorpay Secure">
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    // Link this to your "Enroll Now" button
+    function openPayment() {
+        document.getElementById('razorpay-overlay').style.display = 'flex';
+    }
+
+    // Close when clicking outside the modal
+    window.onclick = function (event) {
+        let overlay = document.getElementById('razorpay-overlay');
+        if (event.target == overlay) {
+            overlay.style.display = "none";
+        }
+    }
+</script>
+
+</html>
